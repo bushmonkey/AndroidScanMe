@@ -1,16 +1,31 @@
 package bushmonkey.scanme;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ExpandableListView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 
 public class ViewDetails extends AppCompatActivity {
+    HashMap<String, List<String>> ShoppingCategoryList;
+    List<String> ShoppingList;
+    ExpandableListView Exp_list;
+    ShoppingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_details);
+        Exp_list = (ExpandableListView) findViewById(R.id.exp_list);
+        ShoppingCategoryList = DataProvider.getInfo();
+        ShoppingList = new ArrayList<String>(ShoppingCategoryList.keySet());
+        adapter = new ShoppingAdapter(this, ShoppingCategoryList, ShoppingList);
+        Exp_list.setAdapter(adapter);
     }
 
     @Override
