@@ -1,37 +1,22 @@
 package bushmonkey.scanme;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
-public class DetailsCapture extends AppCompatActivity implements View.OnClickListener {
-    TextView mainTextView;
-    Button saveButton;
-    Button newItemButton;
-    EditText productNameTxt;
+public class ViewDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details_capture);
-        mainTextView = (TextView) findViewById(R.id.InfoText);
-        saveButton = (Button) findViewById(R.id.UpdateDetailsBtn);
-        saveButton.setOnClickListener(this);
-        newItemButton = (Button) findViewById(R.id.NewBtn);
-        newItemButton.setOnClickListener(this);
-        productNameTxt = (EditText) findViewById(R.id.ProductNameText);
+        setContentView(R.layout.activity_view_details);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_details_capture, menu);
+        getMenuInflater().inflate(R.menu.menu_view_details, menu);
         return true;
     }
 
@@ -48,10 +33,5 @@ public class DetailsCapture extends AppCompatActivity implements View.OnClickLis
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View v) {
-        mainTextView.setText("Item saved");
     }
 }
